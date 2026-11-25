@@ -40,9 +40,40 @@ console.log(hero)
 hero.age = "1590"
 
 for (const prop in hero) {
-    console.log(prop);
-    
+    // chave: valor
+    console.log(`${prop}:`, hero[prop]);
 }
 
-Object.keys(hero)
-Object.values(hero)
+Object.keys(hero) // lista de chaves
+Object.values(hero) // lista de valores
+
+// desestruturação
+const { name, team} = hero
+console.log(name, team);
+
+// método
+const villian = {
+    name: "Doutor Destino",
+    power: 500,
+    attack(target) {
+    return `${this.name} atacou ${target}!`
+    },
+    powerUp(amount) {
+        this.power += amount
+        return this.power
+    }
+}
+
+console.log(villian.attack("Thor"))
+console.log(villian.powerUp(50))
+
+// villian.powerUp(100)
+// const { power } = villian
+// console.log(power)
+
+//referencia x copia
+const ref = hero
+
+ref.power = 1
+
+console.log(hero.power);
